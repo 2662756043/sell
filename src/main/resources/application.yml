@@ -1,0 +1,59 @@
+#springboot2.0 以后改成了这种模式
+server:
+  servlet:
+    context-path: /sell
+
+#server:
+#  context-path: /sell   2.0以前写法
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    #    这里一定要注意时区问题
+    url: jdbc:mysql://localhost:3306/sell?useSSL=false&serverTimezone=GMT%2b8&characterEncoding=utf-8
+  jpa:
+    #将数据库打印出来
+    show-sql: true
+    #自动生成数据库表
+    hibernate:
+      ddl-auto: update
+  # 序列化配置，返回给前端的空数据不用显示出来
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: localhost
+    port: 6379
+
+
+#wechat:
+##公众平台id
+#  mpAppId: wxd898fcb01713c658
+##公众平台密钥
+#  mpAppSecret: 47ccc303338cee6e62894fxxxxxxxxxxx
+#开放平台id
+#  openAppId: wx6ad144e54af67d87
+##开放平台密钥
+#  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+#商户号
+#  mchId: 1483469312
+#商户密钥
+#  mchKey: 06C56A89949D617xxxxxxxxxxx
+#商户证书路径
+#  keyPath: /var/weixin_cert/h5.p12
+#商户证书路径
+#  notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+#微信模版id
+#  templateId:
+#    orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+#
+#projectUrl:
+#  wechatMpAuthorize: http://sell.natapp4.cc
+#  wechatOpenAuthorize: http://sell.natapp4.cc
+#  sell: http://sell.natapp4.cc
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
